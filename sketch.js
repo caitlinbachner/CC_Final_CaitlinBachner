@@ -60,11 +60,11 @@ function preload() {
   gardener_6 = createAudio('VL 6.m4a')
   gardener_7 = createAudio('VL 7.m4a')
   gardener_8 = createAudio('VL 8.m4a')
-    butler_3 = createAudio('')
-  butler_4 = createAudio('')
-  butler_5 = createAudio('')
-  butler_6 = createAudio('')
-  butler_7 = createAudio('')
+    butler_3 = createAudio('OldManL3.m4a')
+  butler_4 = createAudio('OldManL4.m4a')
+  butler_5 = createAudio('OldManL5.m4a')
+  butler_6 = createAudio('OldManL6.m4a')
+  butler_7 = createAudio('OldManL7.m4a')
 }
 function setup() {
   createCanvas(700,500)
