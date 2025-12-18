@@ -64,14 +64,14 @@ function preload() {
   butler_4 = createAudio('')
   butler_5 = createAudio('')
   butler_6 = createAudio('')
-  butler_7 = createAudio('')}
-
+  butler_7 = createAudio('')
+}
 function setup() {
   createCanvas(700,500)
   textFont('Courier New')}
-
 function draw() {
   //SCENE CHANGES
+
   if (scene == "start")
     title_screen()
   else if (scene == "grand hall 1")
@@ -92,10 +92,12 @@ function draw() {
     entrance_hall_2()
   else if (scene == "final guess")
     final_guess()
+
   if (finalGuess !== " " && finalGuess == "The Gardener")
     good_ending()
   else if (finalGuess !== " ")
-    bad_ending(finalGuess)}
+    bad_ending(finalGuess)
+}
 
 function button(xpos, ypos, w, h, txt, size) {
   let hover = (mouseX > xpos && mouseX < xpos+w && mouseY > ypos && mouseY < ypos+h)
@@ -103,22 +105,27 @@ function button(xpos, ypos, w, h, txt, size) {
   else fill(0)
   rect(xpos, ypos, w, h, 20)
   //MAKES BOX, SEES IF MOUSE IS HOVERED, COLORS ^
+  
+  
   fill(255)
   textAlign(CENTER,CENTER)
   textSize(size)
   text(txt,xpos+w/2,ypos+h/2)
   //WRITES TEXT IN BOX ^ (doesnt use textbox funtion because of fill overrides)
+
   return hover 
-  //RETURNS TRUE IF BUTTON IS HOVERED ^}
-  
+  //RETURNS TRUE IF BUTTON IS HOVERED ^
+}
 function textbox(xpos, ypos, w, h, txt, size){
   //CREATES TEXTBOX
   fill(0)
   rect(xpos, ypos, w, h, 20)
+  
   fill(255)
   textAlign(CENTER, CENTER)
   textSize(size)
-  text(txt,xpos,ypos+h/2,w)}
+  text(txt,xpos,ypos+h/2,w)
+}
 
 function title_screen(){
   tint(200)
@@ -129,7 +136,6 @@ function title_screen(){
   if (mouseIsPressed && hoverStart && millis() - last_click > cooldown) {
     last_click = millis()
     scene = "grand hall 1"}}
-  
 function entrance_hall_1(){ //FULL ENTRANCE HALL SCENE
   tint(200)
   image(entrance_img,0,0,width,height)
@@ -172,12 +178,13 @@ function entrance_hall_1(){ //FULL ENTRANCE HALL SCENE
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 0
       scene = "crime scene"
-      last_click = millis()}}}
-  
+      last_click = millis()
+}}}
 function study(){
   tint(200)
   image(study_img,0,0,width,height)
   noTint()
+  
   if (dialogue == 0 ){
   hoverNext = button(615,415,75,75, "NEXT",20)
   textbox(15,415,590,75, "The body is lying on the table, blood pooling around it. Lying a half meter away, is a knife.",17)
@@ -221,8 +228,8 @@ function study(){
     if (mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 0
       scene = "kitchen"
-      last_click = millis()}}}
-
+      last_click = millis()}}
+}
 function kitchen(){
   tint(200)
   image(kitchen_img,0,0,width,height)
@@ -232,7 +239,8 @@ function kitchen(){
     let hoverNext = button(615,415,75,75, "NEXT",20)
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 1
-      last_click = millis()}} 
+      last_click = millis()
+  }} 
   else if (dialogue == 1){
     character(housekeeper_img,"THE HOUSEKEEPER" ,"Oh! Thank the Good Lord someone has arrived!",20,50,100)
     if (voice_line_said == false){
@@ -242,13 +250,15 @@ function kitchen(){
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 2
       last_click = millis()
-      voice_line_said = false}} 
+      voice_line_said = false
+  }} 
   else if (dialogue == 2){
     faded_char(housekeeper_img,50,100)
     hoverNext = button(15,415,675,75, "'Tell me what you saw.'", 20)
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 3
-      last_click = millis()}} 
+      last_click = millis()
+  }} 
   else if (dialogue == 3){
     character(housekeeper_img,"THE HOUSEKEEPER" ,"It was an hour since supper, and the Lord had retired to his Study. I am to bring him his Brandy then, he likes a glass in the evening to help with his sleep.",15,50,100)
     if (voice_line_said == false){
@@ -258,7 +268,8 @@ function kitchen(){
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 4
       last_click = millis()
-      voice_line_said = false}} 
+      voice_line_said = false
+  }} 
   else if (dialogue == 4){
     character(housekeeper_img,"THE HOUSEKEEPER","I knocked a few times, but he didn't answer, so I just went in. He was lying there, in his own blood. I screamed, and the other Staff and the Lady came running. We phoned the police immediately. ",12,50,100)
     if (voice_line_said == false){
@@ -268,13 +279,15 @@ function kitchen(){
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 5
       last_click = millis()
-      voice_line_said = false}} 
+      voice_line_said = false
+  }} 
   else if (dialogue == 5){
     faded_char(housekeeper_img,50,100)
     hoverNext = button(15,415,675,75, "'Was the door unlocked?'", 20)
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 6
-      last_click = millis()}} 
+      last_click = millis()
+  }} 
   else if (dialogue == 6){
     character(housekeeper_img,"THE HOUSEKEEPER","No. It's not locked usually, not in the evenings. He dislikes walking over to the door to retrieve his drink. Only he keeps the key. ",15,50,100)
     if (voice_line_said == false){
@@ -284,13 +297,15 @@ function kitchen(){
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 7
       last_click = millis()
-      voice_line_said = false}} 
+      voice_line_said = false
+  }} 
   else if (dialogue == 7){
     faded_char(housekeeper_img,50,100)
     hoverNext = button(15,415,675,75, "'Is the window usually open?'", 20)
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 8
-      last_click = millis()}} 
+      last_click = millis()
+  }} 
   else if (dialogue == 8){
     character(housekeeper_img,"THE HOUSEKEEPER","Not always. On a nice night like this, I thought he had opened it himself. He likes the air, likes looking over the Gardens. ",15,50,100)
     if (voice_line_said == false){
@@ -300,13 +315,15 @@ function kitchen(){
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 9
       last_click = millis()
-      voice_line_said = false}} 
+      voice_line_said = false
+  }} 
   else if (dialogue == 9){
     faded_char(housekeeper_img,50,100)
     hoverNext = button(15,415,675,75, "'Are you missing a knife?'", 20)
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 10
-      last_click = millis()}}  
+      last_click = millis()
+  }}  
   else if (dialogue == 10){
     character(housekeeper_img,"THE HOUSEKEEPER","Oh! I don't think so. Let me check.",20,50,100)
     if (voice_line_said == false){
@@ -316,13 +333,15 @@ function kitchen(){
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 11
       last_click = millis()
-      voice_line_said = false}} 
+      voice_line_said = false
+  }} 
   else if (dialogue == 11){
     textbox(15,415,590,75, "She goes to a sink basin filled with dish ware, and opens some drawers. She carefully lays out all of her implements, counting them.",15)
     let hoverNext = button(615,415,75,75, "NEXT",20)
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 12
-      last_click = millis()}} 
+      last_click = millis()
+  }} 
   else if (dialogue == 12){
     character(housekeeper_img,"THE HOUSEKEEPER","Oh, no. I am missing a knife. My nice steel carving knife. I used it only a few hours ago, to carve the meat for supper. I wiped it and put it in the basin, with the rest of what I used for dinner. Was that the knife used to kill the Lord?",15,50,100)
     if (voice_line_said == false){
@@ -332,15 +351,16 @@ function kitchen(){
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 13
       last_click = millis()
-      voice_line_said = false}} 
+      voice_line_said = false
+  }} 
   else if (dialogue == 13){
     faded_char(housekeeper_img,50,100)
     hoverNext = button(15,415,675,75, "'Thank you. I must speak with the Lady'", 20)
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 0
       last_click = millis()
-      scene = "bedroom"}}}
-  
+      scene = "bedroom"
+  }}}
 function bedroom(){
   tint(200)
   image(bedroom_img,0,0,width,height)
@@ -544,7 +564,6 @@ function bedroom(){
       dialogue = 0
       last_click = millis()
       scene = "drawing room"}}}
-  
 function entrance_hall_secret(){
   tint(200)
   image(entrance_img,0,0,width,height)
@@ -578,7 +597,6 @@ function entrance_hall_secret(){
       dialogue = 0
       last_click = millis()
       scene = "drawing room"}}}
-  
 function drawing_room(){
   tint(200)
   image(drawing_room_img,0,0,width,height)
@@ -734,7 +752,6 @@ function drawing_room(){
       dialogue = 0
       last_click = millis()
       scene = "garden"}}}
-  
 function garden(){
   tint(200)
   image(garden_img,0,0,width,height)
@@ -880,8 +897,7 @@ function garden(){
     if(mouseIsPressed && hoverNext && millis() - last_click > cooldown){
       dialogue = 0
       last_click = millis()
-      scene = "grand hall 2"}}}
-  
+      scene = "grand hall 2"}} }
 function entrance_hall_2(){
   tint(200)
   image(entrance_img,0,0,width,height)
@@ -980,37 +996,43 @@ function entrance_hall_2(){
       dialogue = 0
       last_click = millis()
       scene = "final guess"}}}
-  
 function final_guess(){
   tint(200)
   image(manor_img,-30,0,width+80,height)
   noTint()
+  
   textbox(200,50,300,75,"Who did it?", 30)
+  
   let hoverButler = button(30,150,300,75, "The Butler", 20)
   if (mouseIsPressed && hoverButler) {
     finalGuess = "The Butler"
     scene = "ending"}
+  
   let hoverHousekeeper = button(30,250,300,75, "The Housekeeper", 20)
   if (mouseIsPressed && hoverHousekeeper) {
     finalGuess = "The Housekeeper"
     scene = "ending"}
+  
   let hoverGardener = button(30,350,300,75, "The Gardener", 20)
   if (mouseIsPressed && hoverGardener) {
     finalGuess = "The Gardener"
     scene = "ending"}
+  
   let hoverWidow = button(370,150,300,75, "The Widow", 20)
   if (mouseIsPressed && hoverWidow) {
     finalGuess = "The Widow"
     scene = "ending"}
+  
   let hoverChild = button(370,250,300,75, "The Child", 20)
   if (mouseIsPressed && hoverChild) {
     finalGuess = "The Child"
     scene = "ending"}
+  
   let hoverOther = button(370,350,300,75, "Someone Else", 20)
   if (mouseIsPressed && hoverOther) {
     finalGuess = "Someone Else"
-    scene = "ending"}}
-  
+    scene = "ending"}
+}
 function good_ending(){
   tint(200)
   image(manor_img,-30,0,width+80,height)
@@ -1061,13 +1083,13 @@ function bad_ending(guess){
     last_click = millis()
     finalGuess = " "
     scene = "start"}}}
-  
 function faded_char(img,x_pos,y_pos){
   tint(150)
   image(img,x_pos,y_pos,285,380)
-  noTint()}
-  
+  noTint()  
+}
 function character(char,char_name,txt,size,x_pos,y_pos){ // CHARACTER IMAGE
  image(char,x_pos,y_pos,285,380) 
  textbox(25,375,150,30,char_name, 15)
- textbox(15,415,590,75,txt,size)}
+ textbox(15,415,590,75,txt,size) 
+}
